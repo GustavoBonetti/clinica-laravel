@@ -18,9 +18,10 @@ class CreatePatientsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->foreignId('doctor_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('doctor_id')->references('id')->on('users');
         });
