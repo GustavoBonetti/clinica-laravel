@@ -154,7 +154,7 @@ class ScheduleController extends Controller
     public function destroy($id)
     {
         $schedule = Schedule::find($id);
-        
+
         if (! $schedule || $schedule->doctor_id !== Auth::id()) {
             Session::flash('alert-warning', 'Agendamento não encontrado');
         }
