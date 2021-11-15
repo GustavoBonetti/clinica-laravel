@@ -7,6 +7,27 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Project Installation
+- composer install --ignore-platform-reqs
+- cp .env.example .env
+- ./vendor/bin/sail up
+- docker exec -it <container> sh -c 'php artisan key:generate && php artisan migrate && php artisan passport:keys && php artisan passport:client --password'
+
+## API
+- (POST) http://localhost/oauth/token - Authenticate. Ex: 
+```
+grant_type:password
+client_id:1
+client_secret:ieNJ7ABSDY1KuXUkXcstDQqjLgNMTPYoeYcPch1x
+username:gustavobonetti8@gmail.com
+password:12345678
+scope: ''
+```
+
+- (GET) http://localhost/api/user - User info
+- (GET) http://localhost/api/schedules - All schedules
+- (GET) http://localhost/api/schedules/1 - All schedules from specific doctor/user
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
